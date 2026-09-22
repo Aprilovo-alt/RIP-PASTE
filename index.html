@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>RIP & PASTE</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div>
+      <div class="brand">RIP <span>&</span> PASTE</div>
+      <div class="subtitle">a little paper collage studio</div>
+    </div>
+    <div class="top-actions">
+      <button id="clearBtn" class="ghost">CLEAR</button>
+      <button id="exportBtn" class="dark">EXPORT PNG</button>
+    </div>
+  </header>
+
+  <main class="workspace">
+    <aside class="controls">
+      <section>
+        <label class="section-title">01 / WORDS</label>
+        <textarea id="textInput" placeholder="type something to tear...">RIP & PASTE</textarea>
+        <button id="addBtn" class="primary">＋ TEAR OFF PAPER</button>
+      </section>
+
+      <section>
+        <label class="section-title">02 / PAPER</label>
+        <div class="swatches" id="paperColors">
+          <button data-color="#f6f0df" style="background:#f6f0df"></button>
+          <button data-color="#eee7d3" style="background:#eee7d3"></button>
+          <button data-color="#e5e5df" style="background:#e5e5df"></button>
+          <button data-color="#d8d0c0" style="background:#d8d0c0"></button>
+          <button data-color="#d9c8bd" style="background:#d9c8bd"></button>
+          <button data-color="#cfd6ce" style="background:#cfd6ce"></button>
+          <button data-color="#c9c4b8" style="background:#c9c4b8"></button>
+          <button data-color="#b8b7ad" style="background:#b8b7ad"></button>
+        </div>
+        <label class="small-label">TORN EDGE</label>
+        <div class="edge-row">
+          <button class="edge active" data-edge="soft">SOFT</button>
+          <button class="edge" data-edge="rough">ROUGH</button>
+          <button class="edge" data-edge="sharp">SHARP</button>
+        </div>
+      </section>
+
+      <section>
+        <label class="section-title">03 / TYPE</label>
+        <select id="fontSelect">
+          <option value="Georgia, serif">Old Serif</option>
+          <option value="Arial, sans-serif">Clean Sans</option>
+          <option value="'Times New Roman', serif">Newspaper</option>
+          <option value="Impact, sans-serif">Poster</option>
+          <option value="'Courier New', monospace">Typewriter</option>
+        </select>
+        <div class="range-line"><span>SIZE</span><output id="sizeValue">42</output></div>
+        <input id="sizeRange" type="range" min="18" max="100" value="42">
+      </section>
+
+      <section class="tips">
+        <label class="section-title">04 / COLLAGE</label>
+        <p>Drag pieces around the paper.<br>Click a piece to select it.<br>Use the controls below to adjust it.</p>
+        <div class="selected-tools">
+          <button id="rotateLeft">↶</button>
+          <button id="rotateRight">↷</button>
+          <button id="frontBtn">↑ FRONT</button>
+          <button id="backBtn">↓ BACK</button>
+          <button id="deleteBtn">DELETE</button>
+        </div>
+      </section>
+    </aside>
+
+    <section class="stage-wrap">
+      <div class="stage-label"><span>COLLAGE / <b id="count">0</b> PIECES</span><span>100% PAPER</span></div>
+      <div id="stage" class="stage">
+        <div class="paper-bg"></div>
+        <div class="empty" id="emptyState">
+          <span>YOUR TABLE IS EMPTY</span>
+          <small>Type a word on the left and tear it off.</small>
+        </div>
+        <div id="pieces"></div>
+      </div>
+    </section>
+  </main>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
